@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.SiJoLi.SiJoLi">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".TambahkanFoto"></activity>
+        <activity android:name=".PengaturanProfilAwal" />
+        <activity android:name=".MapsPermission" />
+        <activity android:name=".VerifikasiProfil" />
+        <activity android:name=".LengkapiData" />
+        <activity android:name=".WelcomeMenu" />
+        <activity android:name=".VerifikasiTelepon" />
+        <activity android:name=".Daftar" />
+        <activity android:name=".LoginMenu" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".SplashScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
