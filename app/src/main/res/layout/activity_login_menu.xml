@@ -1,9 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginMenu">
+    android:background="@drawable/backgroundmenulogin"
+    android:alpha="0.8"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".LoginMenu"    >
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginRight="70dp"
+        android:layout_marginLeft="70dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        >
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_launcher"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:fontFamily="sans-serif-light"
+            android:text="Sometimes i sits and think,"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:fontFamily="sans-serif-light"
+            android:text="and sometimes just sits."/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:textAlignment="center"
+            android:textSize="25sp"
+            android:layout_marginTop="100dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:text="Masuk Menggunakan"/>
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nomor telepon"
+            android:paddingBottom="20dp"
+            android:paddingTop="20dp"
+            android:background="#F8A466"
+            android:textColor="#FFFFFF"
+            android:layout_marginBottom="10dp"
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nomor telepon"
+            android:paddingBottom="20dp"
+            android:paddingTop="20dp"
+            android:layout_marginBottom="10dp"
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nomor telepon"
+            android:paddingBottom="20dp"
+            android:paddingTop="20dp"
+            android:layout_marginBottom="20dp"
+            />
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
