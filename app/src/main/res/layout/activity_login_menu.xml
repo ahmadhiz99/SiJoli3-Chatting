@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backgroundmenulogin"
+    android:background="@drawable/background"
     android:alpha="0.8"
     android:gravity="center"
     android:orientation="vertical"
@@ -21,9 +21,9 @@
         >
 
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/ic_launcher"/>
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/iconpengantin"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -32,15 +32,8 @@
             android:textAlignment="center"
             android:textSize="20sp"
             android:fontFamily="sans-serif-light"
-            android:text="Sometimes i sits and think,"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="#FFFFFF"
-            android:textAlignment="center"
-            android:textSize="20sp"
-            android:fontFamily="sans-serif-light"
-            android:text="and sometimes just sits."/>
+            android:text="Sometimes i sits and think, and sometimes just sits."/>
+
 
 
         <TextView
@@ -55,35 +48,53 @@
             android:text="Masuk Menggunakan"/>
 
 
+
         <Button
+            android:id="@+id/btn_daftardengannomer"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Nomor telepon"
-            android:paddingBottom="20dp"
-            android:paddingTop="20dp"
-            android:background="#F8A466"
+            android:layout_height="60dp"
+            android:layout_marginBottom="10dp"
             android:textColor="#FFFFFF"
-            android:layout_marginBottom="10dp"
+            android:background="@drawable/roundedbackground"
+            android:drawableLeft="@drawable/iconphone"
+            android:drawablePadding="-20dp"
+            android:gravity="center"
+            android:paddingLeft="20dp"
+            android:text="Nomor telepon"
             />
 
-        <Button
+        <com.facebook.login.widget.LoginButton
+            android:id="@+id/btn_daftardenganfacebook"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Nomor telepon"
-            android:paddingBottom="20dp"
-            android:paddingTop="20dp"
+            android:layout_height="89dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            />
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp" />
 
-        <Button
+<!--        <Button-->
+<!--            android:id="@+id/btn_daftardenganfacebook"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginBottom="10dp"-->
+<!--            android:background="@drawable/roundedbackground2"-->
+<!--            android:paddingTop="15dp"-->
+<!--            android:paddingBottom="15dp"-->
+<!--            android:drawableLeft="@drawable/iconfacebook"-->
+<!--            android:drawablePadding="-20dp"-->
+<!--            android:gravity="center"-->
+<!--            android:paddingLeft="20dp"-->
+<!--            android:text="Facebook"-->
+<!--            />-->
+
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/btn_daftardengangoogle"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Nomor telepon"
-            android:paddingBottom="20dp"
-            android:paddingTop="20dp"
+            android:layout_height="60dp"
             android:layout_marginBottom="20dp"
+            android:gravity="center"
             />
-
     </LinearLayout>
 
 

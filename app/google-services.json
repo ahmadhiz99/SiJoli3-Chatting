@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "883998339008",
+    "firebase_url": "https://sijoli-f8bf3.firebaseio.com",
+    "project_id": "sijoli-f8bf3",
+    "storage_bucket": "sijoli-f8bf3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:883998339008:android:a92e809c0b650c61c6a225",
+        "android_client_info": {
+          "package_name": "com.SiJoLi.SiJoLi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "883998339008-rikl7fri1p0vjunec6tnpf0i924dpe4m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.SiJoLi.SiJoLi",
+            "certificate_hash": "15c04f52e440b4b393f79a6c6caaeab78b418145"
+          }
+        },
+        {
+          "client_id": "883998339008-o36cc1u951obqdib54ga2f05luiu1ae1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClYsNofkWVuG3wuHBMNzsSEKeOG-oCqV0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "883998339008-o36cc1u951obqdib54ga2f05luiu1ae1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
