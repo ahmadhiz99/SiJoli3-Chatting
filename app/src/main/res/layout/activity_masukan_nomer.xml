@@ -1,6 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="@drawable/backgroundpolos"
+    tools:context=".MasukanNomer">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:layout_gravity="center"
+       android:gravity="center"
+       android:orientation="vertical"
+       android:layout_marginRight="50dp"
+       android:layout_marginLeft="50dp"
+       >
+       <TextView
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:gravity="center"
+           android:text="Masukan Nomer teleponmu"
+           android:textColor="#FFFFFF"
+           android:textSize="30sp"
+           android:layout_marginBottom="100dp"
+
+           />
+       <EditText
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_marginBottom="70dp"
+           android:background="@drawable/roundedbackground2"
+           android:textSize="20sp"
+           android:padding="8dp"
+           android:inputType="phone"
+           android:id="@+id/et_nomerhp"
+           />
+
+       <Button
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="Masuk"
+           android:textColor="#F8A466"
+           android:background="@drawable/roundedbackground2"
+           android:textSize="20sp"
+           android:padding="5dp"
+           android:id="@+id/btn_selanjutnya"
+           />
+
+   </LinearLayout>
+</LinearLayout>

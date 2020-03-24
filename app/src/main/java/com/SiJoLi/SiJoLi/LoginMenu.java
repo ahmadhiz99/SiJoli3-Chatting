@@ -60,6 +60,10 @@ public class LoginMenu extends AppCompatActivity {
 
     //And also a Firebase Auth object
     FirebaseAuth mAuth;
+
+    //check
+    FirebaseUser currentUser;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         FacebookSdk.sdkInitialize(getApplicationContext());
@@ -71,7 +75,16 @@ public class LoginMenu extends AppCompatActivity {
        LoginButton loginButton = findViewById(R.id.btn_daftardenganfacebook);
         //Setting the permission that we need to read
         loginButton.setReadPermissions("public_profile","email", "user_birthday");
+        currentUser = FirebaseAuth.getInstance().getCurrentUser();
 
+        //CHECKCURRENTACCUOUNT PHONE
+        //check whether the user is logged in
+        if (currentUser != null) {
+            //if logged in the start the Profile activity
+            Intent intent = new Intent(LoginMenu.this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        }
 
         //AUTHGOOGLE
         //first we intialized the FirebaseAuth object
@@ -113,12 +126,6 @@ public class LoginMenu extends AppCompatActivity {
                 signIn();
             }
         });
-
-
-
-
-
-
 
 
         //AUTHFACEBOOK
@@ -198,8 +205,6 @@ public class LoginMenu extends AppCompatActivity {
                     }
                 });
     }
-
-
 
     //AUTHGOOGLE
     @Override
@@ -288,8 +293,6 @@ public class LoginMenu extends AppCompatActivity {
         startActivityForResult(signInIntent, RC_SIGN_IN);
 
     }
-
-
     
     //AUTHFACEBOOK
     
