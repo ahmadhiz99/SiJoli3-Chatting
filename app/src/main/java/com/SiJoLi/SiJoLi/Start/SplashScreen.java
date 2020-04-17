@@ -1,10 +1,13 @@
-package com.SiJoLi.SiJoLi;
+package com.SiJoLi.SiJoLi.Start;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+
+import com.SiJoLi.SiJoLi.Account.LoginMenu;
+import com.SiJoLi.SiJoLi.R;
 
 public class SplashScreen extends AppCompatActivity {
     private int waktu_loading=4000;

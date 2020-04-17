@@ -1,9 +1,8 @@
-package com.SiJoLi.SiJoLi;
+package com.SiJoLi.SiJoLi.Account;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,6 +10,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.SiJoLi.SiJoLi.R;
+import com.SiJoLi.SiJoLi.Start.TampilFoto;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -35,8 +36,6 @@ import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -57,7 +56,6 @@ public class LoginMenu extends AppCompatActivity {
     private static final String TAG2 = "simplifiedcoding";
     //creating a GoogleSignInClient object
     GoogleSignInClient mGoogleSignInClient;
-
     //And also a Firebase Auth object
     FirebaseAuth mAuth;
 
@@ -77,14 +75,27 @@ public class LoginMenu extends AppCompatActivity {
         loginButton.setReadPermissions("public_profile","email", "user_birthday");
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
 
+        //loginhp
+//        Button btn_loginn = findViewById(R.id.btn_logindenganhp);
+//        btn_loginn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent i = new Intent(LoginMenu.this,LoginPhoneNumber.class);
+//                startActivity(i);
+//            }
+//        });
+
         //CHECKCURRENTACCUOUNT PHONE
         //check whether the user is logged in
         if (currentUser != null) {
             //if logged in the start the Profile activity
-            Intent intent = new Intent(LoginMenu.this, MainActivity.class);
+            Intent intent = new Intent(LoginMenu.this, TampilFoto.class);
             startActivity(intent);
             finish();
         }
+
+
+        //Login
 
         //AUTHGOOGLE
         //first we intialized the FirebaseAuth object

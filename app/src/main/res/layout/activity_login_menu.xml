@@ -8,7 +8,7 @@
     android:alpha="0.8"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".LoginMenu"    >
+    tools:context=".Account.LoginMenu"    >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -95,6 +95,21 @@
             android:layout_marginBottom="20dp"
             android:gravity="center"
             />
+
+<!--        <Button-->
+<!--            android:id="@+id/btn_logindenganhp"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="60dp"-->
+<!--            android:layout_marginBottom="10dp"-->
+<!--            android:textColor="#FFFFFF"-->
+<!--            android:background="@drawable/roundedbackground"-->
+<!--            android:drawableLeft="@drawable/iconphone"-->
+<!--            android:drawablePadding="-20dp"-->
+<!--            android:gravity="center"-->
+<!--            android:paddingLeft="20dp"-->
+<!--            android:text="Login HP"-->
+<!--            />-->
+
     </LinearLayout>
 
 

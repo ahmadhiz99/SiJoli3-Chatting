@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Start.TampilFoto">
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Foto Profil"
+        android:textSize="30dp"
+        android:layout_marginTop="50dp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/roundedbackground4"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        tools:layout_editor_absoluteX="50dp">
+
+        <ImageView
+            android:padding="5dp"
+            android:id="@+id/img_tampilkanfoto"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:src="@drawable/img_fotoprofil"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="D Akbar"
+            android:textSize="17dp"
+            android:layout_marginLeft="10dp"
+
+            />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        android:layout_margin="5dp"
+        tools:layout_editor_absoluteX="50dp">
+        <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/roundedbackground5"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        android:layout_margin="5dp"
+        tools:layout_editor_absoluteX="50dp">
+
+            <TextView
+                android:id="@+id/tv_umur"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:padding="5dp"
+                android:text="null"
+                android:textColor="#FFFFFF"
+                android:textSize="17dp" />
+    </LinearLayout>
+        <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/roundedbackground6"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        android:layout_margin="5dp"
+        tools:layout_editor_absoluteX="50dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="null"
+            android:textSize="17dp"
+            android:padding="5dp"
+            android:textColor="#FFFFFF"
+            android:id="@+id/tv_zodiak"
+
+            />
+    </LinearLayout>
+    </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:gravity="center"
+        android:text="Dengan men-tap Mulai, Anda menstujui dengan Perjanjian Pengguna dan Peraturan Privasi SiJoli"
+        app:layout_constraintBottom_toTopOf="@+id/btn_selesaitampilfoto" />
+
+    <Button
+        android:id="@+id/btn_selesaitampilfoto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:background="@drawable/roundedbackground"
+        android:text="Selesai"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="30dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

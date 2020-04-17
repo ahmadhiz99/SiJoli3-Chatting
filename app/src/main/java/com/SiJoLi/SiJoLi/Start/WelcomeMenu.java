@@ -1,4 +1,4 @@
-package com.SiJoLi.SiJoLi;
+package com.SiJoLi.SiJoLi.Start;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,28 +7,29 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.SiJoLi.SiJoLi.R;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class WelcomeMenu extends AppCompatActivity {
 
     FirebaseAuth firebaseAuth;
-    Button button;
+    Button btnselanjutnya;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome_menu);
 
-        firebaseAuth = FirebaseAuth.getInstance();
-        button = findViewById(R.id.SignOut);
+        selanjutnya();
 
-        button.setOnClickListener(new View.OnClickListener() {
+    }
+
+    private void selanjutnya() {
+        btnselanjutnya = findViewById(R.id.btn_lanjutkan);
+        btnselanjutnya.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                firebaseAuth.signOut();
-                Intent intent = new Intent(WelcomeMenu.this,LoginMenu.class);
-                startActivity(intent);
+                startActivity(new Intent(WelcomeMenu.this, LengkapiData.class));
             }
         });
     }

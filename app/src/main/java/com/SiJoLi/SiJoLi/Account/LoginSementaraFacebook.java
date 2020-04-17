@@ -1,14 +1,16 @@
-package com.SiJoLi.SiJoLi;
+package com.SiJoLi.SiJoLi.Account;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class PengaturanProfilAwal extends AppCompatActivity {
+import com.SiJoLi.SiJoLi.R;
+
+public class LoginSementaraFacebook extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pengaturan_profil);
+        setContentView(R.layout.activity_login_sementara_facebook);
     }
 }

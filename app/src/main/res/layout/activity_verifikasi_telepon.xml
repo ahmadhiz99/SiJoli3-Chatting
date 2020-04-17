@@ -4,33 +4,58 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".VerifikasiTelepon">
+    tools:context=".Account.VerifikasiTelepon"
+    android:background="#F8A466"
+    >
 
+    <ImageView
+        android:id="@+id/imageverif"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="80dp"
+        android:src="@drawable/verif"
+        app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginStart="56dp"
-            android:layout_marginTop="172dp"
-            android:text="Wait for the code"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
-            android:textColor="@color/colorPrimary"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.145"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/tv_text"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Masukan kode verifikasi yang kami kirimakan ke"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageverif" />
 
-        <ProgressBar
-            android:id="@+id/progressbar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textView" />
+ <TextView
+        android:id="@+id/tv_text2"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Phone Number"
+        android:textColor="#000"
+        android:textSize="25dp"
+        android:layout_marginTop="20dp"
+     android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_text" />
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/roundedbackground2"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_text2">
+
 
         <EditText
             android:id="@+id/editTextCode"
@@ -40,28 +65,34 @@
             android:layout_marginTop="20dp"
             android:digits="0123456789"
             android:drawablePadding="10dp"
-            android:hint="enter verification code"
+            android:hint="Kode Verifikasi"
+            android:layout_gravity="center"
+            android:gravity="center"
             android:inputType="phone"
             android:maxLength="10"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/progressbar" />
+            />
 
         <Button
             android:id="@+id/buttonSignIn"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/editTextCode"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="32dp"
             android:background="@color/colorPrimaryDark"
-            android:text="Sign In"
+            android:text="Verifikasi"
             android:textAllCaps="false"
-            android:textColor="#cdd8f1"
+            android:textColor="#FFFFFF"
+            android:layout_margin="20dp"
+            android:layout_marginBottom="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/editTextCode" />
+
+    </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

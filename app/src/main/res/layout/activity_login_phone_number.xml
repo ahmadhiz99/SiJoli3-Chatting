@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@drawable/backgroundpolos"
+    tools:context=".Account.LoginPhoneNumber">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_marginRight="50dp"
+        android:layout_marginLeft="50dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Masukan Nomer teleponmu"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp"
+            android:layout_marginBottom="100dp"
+
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:layout_marginBottom="50dp"
+            >
+            <com.hbb20.CountryCodePicker
+                android:layout_width="80dp"
+                android:layout_height="50dp"
+                app:ccp_autoDetectCountry="false"
+                android:layout_marginBottom="70dp"
+                android:id="@+id/ccpLogin"
+                app:ccp_showNameCode="false"
+                app:ccp_showFlag="false"
+                android:background="@drawable/roundedbackground2"
+                />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/roundedbackground2"
+                android:padding="8dp"
+                android:inputType="phone"
+                android:id="@+id/et_nomerhpLogin"
+                android:layout_marginLeft="20dp"
+                />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:layout_marginBottom="50dp"
+            >
+
+            <EditText
+                android:id="@+id/et_passwordLogin"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/roundedbackground2"
+                android:hint="Password"
+                android:padding="5dp"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_logindenganphone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/roundedbackground2"
+            android:padding="5dp"
+            android:text="Masuk"
+            android:textColor="#F8A466"
+            android:textSize="20sp" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text=""
+            android:textColor="#FFFFFF"
+            android:textSize="30sp"
+            android:layout_marginBottom="100dp"
+            android:id="@+id/tv_hasilakun"
+
+            />
+
+
+    </LinearLayout>
+</LinearLayout>

@@ -1,4 +1,4 @@
-package com.SiJoLi.SiJoLi;
+package com.SiJoLi.SiJoLi.Account;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.SiJoLi.SiJoLi.MainActivity;
+import com.SiJoLi.SiJoLi.R;
 import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;

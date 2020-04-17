@@ -1,4 +1,4 @@
-package com.SiJoLi.SiJoLi;
+package com.SiJoLi.SiJoLi.Account;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,8 +9,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.SiJoLi.SiJoLi.R;
+import com.SiJoLi.SiJoLi.Start.WelcomeMenu;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.gms.tasks.TaskExecutors;
@@ -53,15 +56,18 @@ public class VerifikasiTelepon extends AppCompatActivity {
         String mobile = intent.getStringExtra("mobile");
         sendVerificationCode(mobile);
 
+        TextView tv_phonenumber = findViewById(R.id.tv_text2);
+        tv_phonenumber.setText("+"+mobile);
+
 
         //if the automatic sms detection did not work, user can also enter the code manually
         //so adding a click listener to the button
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String code = editTextCode.getText().toString().trim();
+                String code = editTextCode.getText().toString().trim();//editable
                 if (code.isEmpty() || code.length() < 6) {
-                    editTextCode.setError("Enter valid code");
+                    editTextCode.setError("Kode Verifikasi Salah atau Nomer HP Sudah Terdaftar");
                     editTextCode.requestFocus();
                     return;
                 }
@@ -84,6 +90,7 @@ public class VerifikasiTelepon extends AppCompatActivity {
                 TaskExecutors.MAIN_THREAD,          //Work done on main Thread
                 mCallbacks);                       // OnVerificationStateChangedCallbacks
     }
+
 
 
     //the callback to detect the verification status
@@ -145,10 +152,10 @@ public class VerifikasiTelepon extends AppCompatActivity {
 
                                     //verification unsuccessful.. display an error message
 
-                                    String message = "Somthing is wrong, we will fix it soon...";
+                                    String message = "Masukan Kembali Kode Verifikasi";
 
                                     if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
-                                        message = "Invalid code entered...";
+                                        message = "Kode Verifikasi Salah atau Nomer HP Sudah Terdaftar";
                                     }
                                     Toast.makeText(VerifikasiTelepon.this,message,Toast.LENGTH_SHORT).show();
                                 }

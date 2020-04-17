@@ -4,6 +4,81 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TambahkanFoto">
+    tools:context=".Start.TambahkanFoto">
 
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Foto Profilmu"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:layout_marginTop="50dp"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        tools:layout_editor_absoluteX="20dp">
+
+        <ImageView
+            android:id="@+id/imageprofile"
+            android:layout_width="300dp"
+            android:layout_height="259dp"
+            android:src="@drawable/img_fotoprofil" />
+
+        <Button
+            android:id="@+id/btn_tambahfoto"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/roundedbackground"
+            android:drawableLeft="@drawable/ic_photocamera"
+            android:paddingLeft="10dp"
+            android:text="Tambahkan Foto"
+            android:textColor="#FFFFFF"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/tv_pesanunggah"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="Silahkan unggah foto yang memperlihatkan wajahmu secara jelas, lihat contoh berikut" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="87dp"
+            android:cropToPadding="true"
+            android:src="@drawable/img_fotopas" />
+    </LinearLayout>
+
+
+
+    <EditText
+        android:id="@+id/et6"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:text="text"
+        android:textSize="10dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/btn_simpanfotoprofil"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/btn_simpanfotoprofil"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/roundedbackground"
+        android:text="Simpan"
+        android:layout_margin="20dp"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
