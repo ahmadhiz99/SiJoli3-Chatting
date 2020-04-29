@@ -1,97 +1,103 @@
 package com.SiJoLi.SiJoLi.Start;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-
-import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.location.Location;
-import android.location.LocationManager;
-import android.os.Build;
 import android.os.Bundle;
+import android.app.Activity;
+import android.content.Context;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+
+import android.util.Log;
 import android.widget.Toast;
 
 import com.SiJoLi.SiJoLi.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
-public class MapsPermission extends AppCompatActivity {
+public class MapsPermission extends Activity implements LocationListener{
+    protected LocationManager locationManager;
+    protected LocationListener locationListener;
+    protected Context context;
+    TextView txtLat;
+    String lat;
+    String provider;
+    protected String latitude,longitude;
+    protected boolean gps_enabled,network_enabled;
+    FirebaseAuth auth;
+    Button btnnext;
+    Double latitudelocation=0.0 ;
+    Double longitudelocation=0.0 ;
 
-    Button permission;
-
+    @SuppressLint("MissingPermission")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps_permission);
+        txtLat = (TextView) findViewById(R.id.tvlocation);
 
-        permission = findViewById(R.id.btn_lanjutkanpermission);
+        btnnext = findViewById(R.id.btn_lanjutkanpermission);
+        auth = FirebaseAuth.getInstance();
+        btnclickcext();
 
-        permission.setOnClickListener(new View.OnClickListener() {
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
+    }
+
+    private void btnclickcext() {
+        btnnext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                FirebaseUser currentUser = auth.getCurrentUser();
+                String uid = currentUser.getUid();
 
-                if (Build.VERSION.SDK_INT >= 23) {
-                    if (ActivityCompat.checkSelfPermission(MapsPermission.this, android.Manifest.permission.ACCESS_FINE_LOCATION) !=
-                            PackageManager.PERMISSION_GRANTED) {
-                        requestPermissions(new String[]{
-                                        android.Manifest.permission.ACCESS_FINE_LOCATION},
-                                REQUEST_CODE_ASK_PERMISSIONS);
-                        return;
-                    }
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference myRef = database.getReference("UserAccount");
+
+//                myRef.child(uid).child("UserID").setValue(user);
+                txtLat = (TextView) findViewById(R.id.tvlocation);
+//        double latitude = location.getLatitude();
+//        double longitude = location.getLongitude();
+                if (latitudelocation.equals(0.0)){
+                    Toast.makeText(MapsPermission.this,"Maaf lokasi tak ditemukan harap aktifkan gps anda",Toast.LENGTH_LONG).show();
+                }else {
+                    myRef.child(uid).child("latitude").setValue(latitudelocation);
+                    myRef.child(uid).child("longitude").setValue(longitudelocation);
+                    startActivity(new Intent(MapsPermission.this, PengaturanProfilAwal.class));
                 }
-
-                getLocation();
-                Intent i = new Intent(MapsPermission.this, PengaturanProfilAwal.class);
-                startActivity(i);
-
             }
-
-
         });
-
     }
 
-    //get access to location permission
-    final private int REQUEST_CODE_ASK_PERMISSIONS = 123;
+    @SuppressLint("SetTextI18n")
+    @Override
+    public void onLocationChanged(Location location) {
 
-    private void getLocation() {
-        LocationManager locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
-            return;
-        }
-        Location myLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-        if (myLocation == null)
-        {
-            myLocation = locationManager.getLastKnownLocation(LocationManager.PASSIVE_PROVIDER);
-
-        }
+        latitudelocation = location.getLatitude();
+        longitudelocation = location.getLongitude();
+        txtLat.setText("Latitude:" + location.getLatitude() + ", Longitude:" + location.getLongitude());
     }
-
-
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-        switch (requestCode) {
-            case REQUEST_CODE_ASK_PERMISSIONS:
-                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    getLocation();
-                } else {
-                    // Permission Denied
-                    Toast.makeText( this,"your message" , Toast.LENGTH_SHORT)
-                            .show();
-                }
-                break;
-            default:
-                super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        }
+    public void onProviderDisabled(String provider) {
+        Log.d("Latitude","disable");
     }
+
+    @Override
+    public void onProviderEnabled(String provider) {
+        Log.d("Latitude","enable");
+    }
+
+    @Override
+    public void onStatusChanged(String provider, int status, Bundle extras) {
+        Log.d("Latitude","status");
+    }
+
 
 }

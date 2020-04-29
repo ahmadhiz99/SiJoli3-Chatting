@@ -27,6 +27,8 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
 import java.util.UUID;
 
@@ -66,10 +68,6 @@ public class TambahkanFoto extends AppCompatActivity {
     }
 
     private void uploadimage() {
-        FirebaseUser currentUser = auth.getCurrentUser();
-        String uid = currentUser.getUid();
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         final DatabaseReference myRef = database.getReference("UserAccount");
 
@@ -80,11 +78,6 @@ public class TambahkanFoto extends AppCompatActivity {
         final StorageReference ref = storageReference.child("images/"+ UUID.randomUUID().toString());
         String a = ref.toString();
             Toast.makeText(TambahkanFoto.this,"Download = "+ a,Toast.LENGTH_LONG).show();
-
-//        FirebaseUser currentUser = auth.getCurrentUser();
-//            String uid = currentUser.getUid();
-
-//            myRef.child(uid).child("FotoProfil").setValue(ref.toString());
 
             ref.putFile(filePath)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -103,13 +96,12 @@ public class TambahkanFoto extends AppCompatActivity {
                                 FirebaseUser currentUser = auth.getCurrentUser();
                                 final String uid = currentUser.getUid();
                                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                                myRef.child(uid).child("PhotoProfil").setValue(b);
+                                myRef.child(uid).child("Photo").child("PhotoProfil").setValue(b);
                                 startActivity(new Intent(TambahkanFoto.this, TampilFoto.class));
-
                             }
                         });
 
-                        Toast.makeText(TambahkanFoto.this, "Uploaded => "+url, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(TambahkanFoto.this, "Uploaded => " + url, Toast.LENGTH_SHORT).show();
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
@@ -134,12 +126,10 @@ public class TambahkanFoto extends AppCompatActivity {
         tambahfoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent intent = new Intent();
                 intent.setType("image/*");
                 intent.setAction(Intent.ACTION_GET_CONTENT);
                 startActivityForResult(Intent.createChooser(intent, "Select Picture"),SELECT_IMAGE);
-
             }
         });
     }

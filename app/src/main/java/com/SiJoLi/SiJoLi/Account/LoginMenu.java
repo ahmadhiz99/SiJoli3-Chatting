@@ -9,15 +9,16 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-
+import com.SiJoLi.SiJoLi.MainActivity;
 import com.SiJoLi.SiJoLi.R;
+import com.SiJoLi.SiJoLi.Start.TambahkanFoto;
 import com.SiJoLi.SiJoLi.Start.TampilFoto;
+import com.SiJoLi.SiJoLi.Start.WelcomeMenu;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
-//import com.facebook.login.Login;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 import com.facebook.login.LoginResult;
@@ -38,7 +39,9 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
 import org.json.JSONException;
-import org.json.JSONObject;
+    import org.json.JSONObject;
+
+import java.util.Map;
 
 public class LoginMenu extends AppCompatActivity {
 
@@ -75,28 +78,16 @@ public class LoginMenu extends AppCompatActivity {
         loginButton.setReadPermissions("public_profile","email", "user_birthday");
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
 
-        //loginhp
-//        Button btn_loginn = findViewById(R.id.btn_logindenganhp);
-//        btn_loginn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent i = new Intent(LoginMenu.this,LoginPhoneNumber.class);
-//                startActivity(i);
-//            }
-//        });
-
         //CHECKCURRENTACCUOUNT PHONE
         //check whether the user is logged in
         if (currentUser != null) {
             //if logged in the start the Profile activity
-            Intent intent = new Intent(LoginMenu.this, TampilFoto.class);
+            Intent intent = new Intent(LoginMenu.this, MainActivity.class);
             startActivity(intent);
             finish();
         }
 
-
         //Login
-
         //AUTHGOOGLE
         //first we intialized the FirebaseAuth object
         mAuth = FirebaseAuth.getInstance();
@@ -115,7 +106,6 @@ public class LoginMenu extends AppCompatActivity {
         //and inside onClick() method we are calling the signIn() method that will open
         //google sign in intent
 
-
         daftarnomertelp = findViewById(R.id.btn_daftardengannomer);
         SignInButton daftargoogle = findViewById(R.id.btn_daftardengangoogle);
         daftarfacebook = findViewById(R.id.btn_daftardenganfacebook);
@@ -123,21 +113,18 @@ public class LoginMenu extends AppCompatActivity {
         daftarnomertelp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(LoginMenu.this, MasukanNomer.class);
+                Intent i = new Intent(LoginMenu.this, MainActivity.class);
                 startActivity(i);
             }
         });
 
-
         //AUTHGOOGLE
-
         findViewById(R.id.btn_daftardengangoogle).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 signIn();
             }
         });
-
 
         //AUTHFACEBOOK
         //Registering callback!
@@ -159,7 +146,6 @@ public class LoginMenu extends AppCompatActivity {
                         try {
                             String email = object.getString("email");
                             String birthday = object.getString("birthday");
-
                             Log.i(TAG, "onCompleted: Email: " + email);
                             Log.i(TAG, "onCompleted: Birthday: " + birthday);
 
@@ -174,9 +160,7 @@ public class LoginMenu extends AppCompatActivity {
                 parameters.putString("fields", "id,name,email,gender,birthday");
                 request.setParameters(parameters);
                 request.executeAsync();
-
             }
-
             @Override
             public void onCancel() {
                 Log.d(TAG, "facebook:onCancel");
@@ -204,15 +188,12 @@ public class LoginMenu extends AppCompatActivity {
                             Log.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = mFirebaseAuth.getCurrentUser();
                             Log.i(TAG, "onComplete: login completed with user: " + user.getDisplayName());
-
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithCredential:failure", task.getException());
                             Toast.makeText(LoginMenu.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
                         }
-
-                        // ...
                     }
                 });
     }
@@ -221,7 +202,6 @@ public class LoginMenu extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-
         //AUTHGOOGLE
         //if the user is already signed in
         //we will close this activity
@@ -281,36 +261,22 @@ public class LoginMenu extends AppCompatActivity {
                             Log.d(TAG2, "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
 
+                            startActivity(new Intent(LoginMenu.this, WelcomeMenu.class));
                             Toast.makeText(LoginMenu.this, "User Signed In", Toast.LENGTH_SHORT).show();
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG2, "signInWithCredential:failure", task.getException());
                             Toast.makeText(LoginMenu.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
-
                         }
-
-                        // ...
                     }
                 });
     }
-
     //this method is called on click
     private void signIn() {
         //getting the google signin intent
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
-
         //starting the activity for result
         startActivityForResult(signInIntent, RC_SIGN_IN);
-
     }
-    
-    //AUTHFACEBOOK
-    
-
-
-//    FirebaseDatabase database = FirebaseDatabase.getInstance();
-//    DatabaseReference myRef = database.getReference("message");
-//
-//        myRef.setValue("Hello, sky!");
 }

@@ -87,7 +87,6 @@ public class LengkapiData extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-
                 FirebaseUser currentUser = auth.getCurrentUser();
                 String uid = currentUser.getUid();
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();

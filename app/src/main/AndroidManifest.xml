@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.SiJoLi.SiJoLi">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -14,7 +15,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Start.TampilFoto"></activity>
+        <activity android:name=".Chat"></activity>
+        <activity android:name=".DetailUser" />
+        <activity android:name=".UploadPhoto" />
+        <activity android:name=".Start.TampilFoto" />
         <activity android:name=".Account.LoginPhoneNumber" />
         <activity android:name=".Account.BuatKataSandi" />
         <activity android:name=".Account.LoginSementaraTelepon" />
@@ -36,6 +40,13 @@
         <activity android:name=".Daftar" />
         <activity android:name=".Account.LoginMenu" />
         <activity android:name=".MainActivity" />
+        <activity android:name=".Galeri" />
+        <activity android:name=".Home" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
         <activity android:name=".Start.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -46,7 +57,8 @@
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
-            android:value="@string/facebook_app_id" />
+            android:value="@string/facebook_app_id"
+            tools:replace="android:value" />
     </application>
 
 </manifest>

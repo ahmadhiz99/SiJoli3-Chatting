@@ -3,6 +3,7 @@ package com.SiJoLi.SiJoLi.Start;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.SiJoLi.SiJoLi.MainActivity;
 import com.SiJoLi.SiJoLi.R;
 import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
@@ -44,23 +46,17 @@ public class TampilFoto extends AppCompatActivity {
         final String uid = currentUser.getUid();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-
-//        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("UserAccount").child(uid);
         final DatabaseReference ref = FirebaseDatabase.getInstance().getReference("UserAccount").child(uid);
-//        storageReference = FirebaseStorage.getInstance().getReference("images/com.google.android.gms.tasks.zzu@1400d34");
-//        storageReference = FirebaseStorage.getInstance().getReference("images/com.google.android.gms.tasks.zzu@1400d34");
-
         ref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                         //This might work but it retrieves all the data
                 String umur = dataSnapshot.child("Umur").getValue(String.class);
                 tvumur.setText(umur);
-
                 String zodiak = dataSnapshot.child("Zodiak").getValue(String.class);
                 tvzodiak.setText(zodiak);
 
-                pesan2 = dataSnapshot.child("PhotoProfil").getValue(String.class);//get password
+                pesan2 = dataSnapshot.child("Photo").child("PhotoProfil").getValue(String.class);//get password
                         Toast.makeText(TampilFoto.this, pesan2,Toast.LENGTH_LONG).show();
 
                 Glide.with(TampilFoto.this)
@@ -76,7 +72,7 @@ public class TampilFoto extends AppCompatActivity {
         btnselesai.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                startActivity(new Intent(TampilFoto.this, ));
+                startActivity(new Intent(TampilFoto.this, MainActivity.class));
             }
         });
     }
