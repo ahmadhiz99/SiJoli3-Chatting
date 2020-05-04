@@ -64,7 +64,6 @@ public class Galeri extends Fragment {
         final View rootView = inflater.inflate(R.layout.fragment_galeri,
                 container, false);
 
-
         galeri  = "PhotoProfil";
         galeri1 = "PhotoGaleri1";
         galeri2 = "PhotoGaleri2";

@@ -34,12 +34,30 @@ public class Pesan extends Fragment {
     private FirebaseAuth auth;
 //    private GoogleMap mMap;
 
+    Double latitA;
+    Double longitA;
+    Double latitB;
+    Double longitB;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_pesan,
                 container, false);
+
+        TextView tvshowdistance = rootView.findViewById(R.id.tvshowdistance);
+
+        latitA =-7.883084;
+        longitA = 110.128207;
+        latitB= -6.217903;
+        longitB=  106.830272;
+
+        double a = distance(latitA,longitA,latitB,longitB);
+//        int b = (int) a;
+        Integer integer = Integer.valueOf((int) Math.round(a));
+        String b = String.valueOf(integer);
+        tvshowdistance.setText(b);
+
 
         auth = FirebaseAuth.getInstance();
 
@@ -62,5 +80,26 @@ public class Pesan extends Fragment {
         });
 
         return rootView;
+    }
+
+    private double distance(double lat1, double lon1, double lat2, double lon2) {
+        double theta = lon1 - lon2;
+        double dist = Math.sin(deg2rad(lat1))
+                * Math.sin(deg2rad(lat2))
+                + Math.cos(deg2rad(lat1))
+                * Math.cos(deg2rad(lat2))
+                * Math.cos(deg2rad(theta));
+        dist = Math.acos(dist);
+        dist = rad2deg(dist);
+        dist = dist * 60 * 1.1515;
+        return (dist*2);
+    }
+
+    private double deg2rad(double deg) {
+        return (deg * Math.PI / 180.0);
+    }
+
+    private double rad2deg(double rad) {
+        return (rad * 180.0 / Math.PI);
     }
 }

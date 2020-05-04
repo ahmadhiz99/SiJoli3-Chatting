@@ -1,18 +1,17 @@
 package com.SiJoLi.SiJoLi.Account;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.SiJoLi.SiJoLi.MainActivity;
 import com.SiJoLi.SiJoLi.R;
-import com.SiJoLi.SiJoLi.Start.TambahkanFoto;
-import com.SiJoLi.SiJoLi.Start.TampilFoto;
 import com.SiJoLi.SiJoLi.Start.WelcomeMenu;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
@@ -39,9 +38,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
 import org.json.JSONException;
-    import org.json.JSONObject;
-
-import java.util.Map;
+import org.json.JSONObject;
 
 public class LoginMenu extends AppCompatActivity {
 
@@ -82,7 +79,7 @@ public class LoginMenu extends AppCompatActivity {
         //check whether the user is logged in
         if (currentUser != null) {
             //if logged in the start the Profile activity
-            Intent intent = new Intent(LoginMenu.this, MainActivity.class);
+            Intent intent = new Intent(LoginMenu.this, WelcomeMenu.class);
             startActivity(intent);
             finish();
         }

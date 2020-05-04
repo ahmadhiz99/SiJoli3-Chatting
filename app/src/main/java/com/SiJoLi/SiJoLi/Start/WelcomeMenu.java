@@ -1,12 +1,12 @@
 package com.SiJoLi.SiJoLi.Start;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.SiJoLi.SiJoLi.Chatting.ui.activities.RegisterActivity;
 import com.SiJoLi.SiJoLi.R;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -29,7 +29,9 @@ public class WelcomeMenu extends AppCompatActivity {
         btnselanjutnya.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(WelcomeMenu.this, LengkapiData.class));
+//                startActivity(new Intent(WelcomeMenu.this, LengkapiData.class));
+                RegisterActivity.startActivity(WelcomeMenu.this);
+                finish();
             }
         });
     }

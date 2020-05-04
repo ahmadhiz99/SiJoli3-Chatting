@@ -1,10 +1,12 @@
 package com.SiJoLi.SiJoLi;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.squareup.picasso.Picasso;
 
@@ -27,15 +29,27 @@ public class DetailUser extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_user);
 
+        Button chat = findViewById(R.id.getuid);
         nama=findViewById(R.id.et_namadetail);
         imgprofil = findViewById(R.id.img_profil_detailuser);
         String namauser = getIntent().getStringExtra(EXTRA_NAMA);
         String src=getIntent().getStringExtra(EXTRA_PHOTO_PROFIL);
+        final String getuid = getIntent().getStringExtra(EXTRA_ID);
 
 
         nama.setText(namauser);
         Picasso.get().load(src).into(imgprofil);
         retreive();
+
+        chat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//               Intent i = new Intent(DetailUser.this,Chat.class);
+//               i.putExtra(Chat.EXTRA_ID,getuid);
+//               i.putExtra(Chat.EXTRA_HOSTNUMBER,"A");
+//               startActivity(i);
+            }
+        });
     }
 
     private void retreive() {

@@ -1,6 +1,7 @@
 package com.SiJoLi.SiJoLi;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,14 +31,37 @@ public class Lamaran extends Fragment {
     private FirebaseAuth auth;
 //    private GoogleMap mMap;
 
+    private static final int SPLASH_TIME_MS = 2000;
+    private Handler mHandler;
+    private Runnable mRunnable;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_lamaran,
                 container, false);
-
+Button chat = rootView.findViewById(R.id.btn_chatting);
+chat.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        mRunnable = new Runnable() {
+            @Override
+            public void run() {
+                // check if user is already logged in or not
+//                if (FirebaseAuth.getInstance().getCurrentUser() != null) {
+                    // if logged in redirect the user to user listing activity
+//                } else {
+//                    // otherwise redirect the user to login activity
+//                    LoginActivity.startIntent(SplashActivity.this);
+//                }
+//                finish();
+            }
+        };
+    }
+});
 
         return rootView;
     }
+
+
 }

@@ -1,9 +1,5 @@
 package com.SiJoLi.SiJoLi;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
@@ -15,7 +11,10 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.firebase.client.DataSnapshot;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.Query;
@@ -43,8 +42,8 @@ public class Chat extends AppCompatActivity {
         setContentView(R.layout.activity_chat);
         Firebase.setAndroidContext(this);
 
-        mSendButton = (Button) findViewById(R.id.sendButton);
-        mMessageEdit = (EditText) findViewById(R.id.messageEdit);
+        mSendButton = (Button) findViewById(R.id.icon_only);
+        mMessageEdit = (EditText) findViewById(R.id.icon_only);
 
         mSendButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,7 +74,7 @@ public class Chat extends AppCompatActivity {
             }
         });
 
-        mMessages = (RecyclerView) findViewById(R.id.messagesList);
+        mMessages = (RecyclerView) findViewById(R.id.icon_only);
 
         LinearLayoutManager manager = new LinearLayoutManager(this);
         manager.setReverseLayout(false);
